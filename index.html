@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journey of Us 💖</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --rose-pink: #ff4d6d;
+            --soft-blush: #fff0f3;
+            --deep-red: #c9184a;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .romantic-font {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .fade-in {
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Floating Hearts/Roses Styles */
+        .floating-element {
+            position: fixed;
+            pointer-events: none;
+            z-index: 10;
+            animation: float linear forwards;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-10vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .falling-element {
+            position: fixed;
+            pointer-events: none;
+            z-index: 10;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        .glowing-text {
+            color: var(--deep-red);
+            text-shadow: 0 0 10px rgba(255, 77, 109, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #ff4d6d, 0 0 15px #ff4d6d;
+            }
+
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #ff758f, 0 0 30px #ff758f;
+            }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .hidden-section {
+            display: none;
+            opacity: 0;
+        }
+
+        .btn-romantic {
+            background: linear-gradient(45deg, #ff4d6d, #c9184a);
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(201, 24, 74, 0.3);
+        }
+
+        .btn-romantic:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(201, 24, 74, 0.5);
+        }
+
+        .btn-yes {
+            background: linear-gradient(45deg, #ff4d6d, #ff758f);
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center p-4">
+
+    <!-- Container -->
+    <div id="main-container" class="max-w-2xl w-full text-center p-8 glass-card fade-in relative z-20">
+
+        <!-- Section 1: Greeting -->
+        <div id="section-1" class="active-section">
+            <h1 class="romantic-font text-4xl md:text-6xl glowing-text mb-6">Hey Neeshu...</h1>
+            <p class="text-xl md:text-2xl text-pink-700 italic mb-8">I want to tell you something special 💖</p>
+            <button onclick="nextSection(2)" class="btn-romantic px-8 py-3 rounded-full text-lg font-semibold">Open my
+                heart</button>
+        </div>
+
+        <!-- Section 2: Introduction -->
+        <div id="section-2" class="hidden-section">
+            <h2 class="romantic-font text-3xl md:text-5xl text-pink-600 mb-6">Specially for You</h2>
+            <div class="space-y-4 text-gray-700 leading-relaxed text-lg">
+                <p>Maine yeh page sirf aur sirf tumhare liye banaya hai...</p>
+                <p>Kyunki tum mere liye woh sab kuch ho jise main lafzon mein bayaan nahi kar sakta. ✨</p>
+            </div>
+            <button onclick="nextSection(3)"
+                class="btn-romantic mt-8 px-8 py-3 rounded-full text-lg font-semibold italic">Aage suno...</button>
+        </div>
+
+        <!-- Section 3: Hinglish Sweet Lines -->
+        <div id="section-3" class="hidden-section">
+            <h2 class="romantic-font text-3xl md:text-5xl text-pink-600 mb-6">Tum mere liye kya ho?</h2>
+            <div class="space-y-6 text-gray-700 text-lg">
+                <p>Tumhara ek message dekh kar hi mera din ban jata hai. 🌸</p>
+                <p>Tumhare saath bitaya hua har lamha, mere liye ek khubsurat khwaab jaisa hai.</p>
+                <p>Tumhari smile? Woh toh meri sabse favourite cheez hai puri duniya mein! 😊</p>
+            </div>
+            <button onclick="nextSection(4)"
+                class="btn-romantic mt-8 px-8 py-3 rounded-full text-lg font-semibold italic">Hamaari Kahani...</button>
+        </div>
+
+        <!-- Section 4: Journey of Feelings -->
+        <div id="section-4" class="hidden-section">
+            <h2 class="romantic-font text-3xl md:text-5xl text-pink-600 mb-6">The Journey</h2>
+            <div class="space-y-6 text-left max-w-sm mx-auto">
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl">✨</span>
+                    <p class="italic text-gray-700">Jab hum pehli baar mile...</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl">🌸</span>
+                    <p class="italic text-gray-700">Jab tumhari smile ne mera din banaya...</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl">💌</span>
+                    <p class="italic text-gray-700">Jab tumse baat karke sab acha lagne laga...</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="text-3xl">❤️</span>
+                    <p class="italic text-gray-700">Jab mujhe ehsaas hua ki tum hi meri manzil ho.</p>
+                </div>
+            </div>
+            <button onclick="nextSection(5)" class="btn-romantic mt-10 px-8 py-3 rounded-full text-lg font-semibold">Let
+                me say something important...</button>
+        </div>
+
+        <!-- Section 5: The Proposal -->
+        <div id="section-5" class="hidden-section">
+            <div class="mb-6">
+                <span class="text-6xl">💍</span>
+            </div>
+            <h2 class="romantic-font text-4xl md:text-6xl glowing-text mb-8">Will You Be Mine Forever?</h2>
+            <p class="text-gray-600 mb-10 italic">I promise to hold your hand through every high and low... ❤️</p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="celebrate('YES 💖')"
+                    class="btn-yes px-10 py-4 rounded-full text-white text-xl font-bold shadow-lg">YES 💖</button>
+                <button onclick="celebrate('DEFINITELY YES 💍')"
+                    class="btn-yes px-10 py-4 rounded-full text-white text-xl font-bold shadow-lg">DEFINITELY YES
+                    💍</button>
+            </div>
+        </div>
+
+        <!-- Final Success Message -->
+        <div id="success-screen" class="hidden-section">
+            <h1 class="romantic-font text-5xl md:text-7xl text-pink-600 mb-4">I Love You! ❤️</h1>
+            <p class="text-xl text-gray-700 italic">This is the best day of my life.</p>
+            <p id="chosen-answer" class="mt-4 font-bold text-pink-500"></p>
+            <div class="mt-8">
+                <span class="text-5xl">👩‍❤️‍👨</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripting for Effects and Transitions -->
+    <script>
+        function nextSection(num) {
+            const current = document.querySelector('.active-section');
+            const next = document.getElementById(`section-${num}`);
+
+            // Fade out current
+            current.style.transition = 'opacity 0.5s ease';
+            current.style.opacity = '0';
+
+            setTimeout(() => {
+                current.style.display = 'none';
+                current.classList.remove('active-section');
+
+                // Show next
+                next.style.display = 'block';
+                setTimeout(() => {
+                    next.style.opacity = '1';
+                    next.classList.add('active-section');
+                    next.classList.add('fade-in');
+                }, 50);
+            }, 500);
+        }
+
+        function celebrate(choice) {
+            const proposal = document.getElementById('section-5');
+            const success = document.getElementById('success-screen');
+            document.getElementById('chosen-answer').innerText = "You said " + choice;
+
+            proposal.style.opacity = '0';
+            setTimeout(() => {
+                proposal.style.display = 'none';
+                success.style.display = 'block';
+                setTimeout(() => {
+                    success.style.opacity = '1';
+                }, 50);
+            }, 500);
+
+            // Explosion of hearts
+            for (let i = 0; i < 50; i++) {
+                setTimeout(createFloatingElement, i * 50);
+            }
+        }
+
+        // Background Animations
+        function createFloatingElement() {
+            const isHeart = Math.random() > 0.5;
+            const el = document.createElement('div');
+            el.className = isHeart ? 'floating-element' : 'falling-element';
+            el.innerHTML = isHeart ? '❤️' : '🌹';
+
+            const startX = Math.random() * 100;
+            const size = Math.random() * (30 - 15) + 15;
+            const duration = Math.random() * (6 - 3) + 3;
+
+            el.style.left = startX + 'vw';
+            el.style.fontSize = size + 'px';
+            el.style.animationDuration = duration + 's';
+
+            document.body.appendChild(el);
+
+            // Remove after animation finishes
+            setTimeout(() => {
+                el.remove();
+            }, duration * 1000);
+        }
+
+        // Periodically spawn elements
+        setInterval(createFloatingElement, 500);
+
+        // Mobile responsiveness for buttons
+        window.addEventListener('resize', () => {
+            // Placeholder for any specific resize logic
+        });
+    </script>
+</body>
+
+</html>
